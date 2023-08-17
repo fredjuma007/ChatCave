@@ -5,7 +5,7 @@ const AuthPage = (props) => {
       e.preventDefault();
       const { value } = e.target[0];
         axios.post(
-            'http://localhost:3001/authenticate', { username: value, secret: value }
+            'https://chatcave.onrender.com/authenticate', { username: value, secret: value }
             ) //posts the username and secret to the server
             .then(r => props.onAuth({ ...r.data, secret: value})) //because its a promise, we need to wait for the response to come back before we can set the username and secret
             .catch(e => console.log('error', e)) //if there is an error, console log it
